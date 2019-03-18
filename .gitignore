@@ -1,0 +1,9 @@
+.git
+.idea
+.vscode
+
+node_modules
+dist
+
+package-lock.json
+Thumbs.db

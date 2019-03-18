@@ -1,0 +1,34 @@
+{
+  "name": "FrontendStarterKit",
+  "version": "0.1.0",
+  "description": "Starter project template for frontend",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "keywords": [
+    "webpack",
+    "jade",
+    "stylus",
+    "babel",
+    "autoprefixer"
+  ],
+  "author": "le2xx",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.1.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

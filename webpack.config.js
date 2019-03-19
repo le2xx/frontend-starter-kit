@@ -1,22 +1,26 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {
     rules: [
-/*      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
-      }, */
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src'),
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: 'env'
+          }
+        }
+      },
       {
         test: /\.styl$/,
         use: [
@@ -27,7 +31,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                autoprefixer({ browsers: ['>= 10%', 'last 2 versions'] })
+                Autoprefixer({ browsers: ['>= 10%', 'last 2 versions'] })
               ],
               sourceMap: true,
             },
@@ -39,18 +43,18 @@ module.exports = {
           }],
       },
       {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: 'env'
-          }
+        test: /\.pug$/,
+        loader: 'pug-loader',
+        options: {
+          pretty: true
         }
-      }
+      },
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('style.css'),
+    new HtmlWebpackPlugin({
+      template: './src/app/pages/index.pug'
+    })
   ]
 };

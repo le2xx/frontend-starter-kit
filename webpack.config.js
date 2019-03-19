@@ -49,6 +49,32 @@ module.exports = {
           pretty: true
         }
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets/fonts/',
+              publicPath: '/assets/fonts/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets/images/',
+              publicPath: '/assets/images/'
+            }
+          }
+        ]
+      }
     ]
   },
   plugins: [

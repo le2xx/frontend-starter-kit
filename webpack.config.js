@@ -1,7 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -10,6 +10,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    host: '0.0.0.0',
+    port: 3000,
+  },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -32,7 +39,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                Autoprefixer({ browsers: ['>= 10%', 'last 2 versions'] })
+                autoprefixer({ browsers: ['>= 10%', 'last 2 versions'] })
               ],
               sourceMap: true,
             },

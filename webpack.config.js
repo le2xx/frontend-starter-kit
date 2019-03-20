@@ -12,9 +12,10 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    compress: false,
     host: '0.0.0.0',
     port: 3000,
+    disableHostCheck: true
   },
   devtool: 'inline-source-map',
   module: {

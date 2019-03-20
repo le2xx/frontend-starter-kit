@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Autoprefixer = require('autoprefixer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -79,8 +80,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
-    new HtmlWebpackPlugin({
-      template: './src/app/pages/index.pug'
-    })
+    new HtmlWebpackPlugin({ template: './src/app/pages/index.pug' }),
+    new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }])
   ]
 };

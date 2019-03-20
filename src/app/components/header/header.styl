@@ -1,10 +1,22 @@
 .header
-  display block
+  display: block
 
   &__logo
-    background url('../assets/images/gear.png') no-repeat
-    width 223px
-    height 223px
+    animation: 20s linear infinite gear
+    background: url('../assets/images/gear.png') no-repeat
+    background-size: contain
+    height: 200px
+    margin: 20px auto
+    width: 200px
 
   &__title
-    text-align center
+    color: $title_color
+    text-align: center
+    text-transform: uppercase
+
+@keyframes gear
+  0%
+    transform rotate(0deg)
+
+  100%
+    transform rotate(360deg)

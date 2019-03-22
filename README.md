@@ -1,12 +1,6 @@
 # Frontend Starter Kit
 
 ![Frontend Starter Kit](https://github.com/le2xx/frontend-starter-kit/raw/master/src/assets/images/gear.png)
-
-[![License][license-image]][license-url]
-[![node][node]][node-url]
-[![npm][npm]][npm-url]
-[![Cult Of Martians][cult-img]][cult]
-
   
 ## Description
 
@@ -32,7 +26,6 @@ This is starter project template for frontend development
 <a href="https://github.com/postcss/autoprefixer">
   <img alt="autoprefixer" src="http://postcss.github.io/autoprefixer/logo.svg" width="100">
 </a>
-
 
 ## Start project
 
@@ -63,4 +56,6 @@ npm build
 
 ## Todo
 
-Make a component template generator
+* Make a component template generator
+* Add automated testing tools
+* Possible to add TypeScript

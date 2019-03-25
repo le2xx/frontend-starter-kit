@@ -22,11 +22,23 @@ const messages = {
   }
 };
 
-const templates = {
-  pug: '.${name} This is ${name} component\n',
-  styl: '.${name}\n  display: block',
-  js: '.${name}\n'
-};
+class Templates {
+  constructor(name) {
+    this.name = name;
+  }
+
+  get pug() {
+    return `.${this.name} This is ${this.name} component\n`;
+  }
+
+  get styl() {
+    return `.${this.name}\n  display: block\n`;
+  }
+
+  get js() {
+    return `const ${this.name} = () => {\n  console.log('${this.name}');\n};\n\nexport { ${this.name} };\n`;
+  }
+}
 
 const componentsDir = path.join(__dirname, 'src/app/components');
 
@@ -42,17 +54,18 @@ const createFilesComponent = name => {
   const pugFileName = nameTransformed + '.pug';
   const stylFileName = nameTransformed + '.styl';
   const jsFileName = nameTransformed + '.js';
-  const pugFile = templates.pug.replace('${name}', nameTransformed);
-  const stylFile = templates.styl.replace('${name}', nameTransformed);
-  const jsFile = templates.js.replace('${name}', nameTransformed);
+  const template = new Templates(nameTransformed);
 
   fs.mkdirSync(newPath);
-  fs.writeFileSync(newPath + '/' + pugFileName, pugFile);
-  console.log('\x1b[32m%s\x1b[0m', 'FILE CREATED >>> ' + pugFileName);
-  fs.writeFileSync(newPath + '/' + stylFileName, stylFile);
-  console.log('\x1b[32m%s\x1b[0m', 'FILE CREATED >>> ' + stylFileName);
-  fs.writeFileSync(newPath + '/' + jsFileName, jsFile);
-  console.log('\x1b[32m%s\x1b[0m', 'FILE CREATED >>> ' + jsFileName);
+
+  fs.writeFileSync(`${newPath}/${pugFileName}`, template.pug);
+  console.log('\x1b[32m%s\x1b[0m', `FILE CREATED >>> ${pugFileName}`);
+
+  fs.writeFileSync(`${newPath}/${stylFileName}`, template.styl);
+  console.log('\x1b[32m%s\x1b[0m', `FILE CREATED >>> ${stylFileName}`);
+
+  fs.writeFileSync(`${newPath}/${jsFileName}`, template.js);
+  console.log('\x1b[32m%s\x1b[0m', `FILE CREATED >>> ${jsFileName}`);
 };
 
 const createNewComponent = name => {

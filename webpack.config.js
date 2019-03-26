@@ -5,10 +5,13 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    polyfills: './src/polyfills.js',
+    index: './src/main.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js',
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

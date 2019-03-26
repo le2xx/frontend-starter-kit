@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "new-component": "node new-component.js"
+    "new-block": "node new-block.js"
   },
   "keywords": [
     "webpack",

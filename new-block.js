@@ -2,11 +2,12 @@ const readline = require('readline');
 const fs = require('fs');
 const path = require('path');
 
+const componentsDir = path.join(__dirname, 'src/app/components');
+const inTerm = process.argv[2];
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
 const messages = {
   enterName: {
     text: 'Enter new component name: ',
@@ -54,8 +55,6 @@ export { ${Templates.camelCaseNameFunc(this.name)} };\n`;
   }
 }
 
-const componentsDir = path.join(__dirname, 'src/app/components');
-
 const checkName = name => {
   return !fs.readdirSync(componentsDir)
     .map(item => item.toLowerCase())
@@ -89,6 +88,13 @@ const createNewComponent = name => {
   }
   return false;
 };
+
+if (inTerm) {
+  rl.close();
+  createNewComponent(inTerm);
+  console.log(messages.ok.color, messages.ok.text + inTerm.toLowerCase());
+  process.exit(0);
+}
 
 rl.question(messages.enterName.text, (answer) => {
   if (createNewComponent(answer)) {

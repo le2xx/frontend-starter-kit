@@ -54,6 +54,12 @@ npm start
 npm build
 ```
 
+### Create new component
+
+```
+npm run new-block name-block
+```
+
 ## Todo
 
 * Add automated testing tools

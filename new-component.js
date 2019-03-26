@@ -27,6 +27,17 @@ class Templates {
     this.name = name;
   }
 
+  static camelCaseNameFunc(name) {
+    const lenName = name.split('-').length;
+    if (lenName > 1) {
+      return name.split('-')
+        .map((item, index) =>
+          index === 0 ? item : item.charAt(0).toUpperCase() + item.substr(1))
+        .join('');
+    }
+    return name;
+  }
+
   get pug() {
     return `.${this.name} This is ${this.name} component\n`;
   }
@@ -36,7 +47,10 @@ class Templates {
   }
 
   get js() {
-    return `const ${this.name} = () => {\n  console.log('${this.name}');\n};\n\nexport { ${this.name} };\n`;
+    return `const ${Templates.camelCaseNameFunc(this.name)} = () => {
+  console.log('${Templates.camelCaseNameFunc(this.name)}');
+};
+export { ${Templates.camelCaseNameFunc(this.name)} };\n`;
   }
 }
 
@@ -73,7 +87,6 @@ const createNewComponent = name => {
     createFilesComponent(name);
     return true;
   }
-
   return false;
 };
 

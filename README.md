@@ -56,6 +56,6 @@ npm build
 
 ## Todo
 
-* Make a component template generator
 * Add automated testing tools
+* Add polyfills for support IE
 * Possible to add TypeScript

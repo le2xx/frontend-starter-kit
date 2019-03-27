@@ -39,7 +39,8 @@ module.exports = {
           require.resolve('style-loader'),
           {
             loader: 'css-loader',
-          }, {
+          },
+          {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
@@ -47,12 +48,14 @@ module.exports = {
               ],
               sourceMap: true,
             },
-          }, {
+          },
+          {
             loader: 'stylus-loader',
             options: {
               sourceMap: true,
-            },
-          }],
+            }
+          }
+        ]
       },
       {
         test: /\.pug$/,
@@ -75,7 +78,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|gif)$/,
         use: [
           {
             loader: 'file-loader',

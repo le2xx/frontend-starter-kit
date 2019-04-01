@@ -40,18 +40,18 @@ class Templates {
   }
 
   get pug() {
-    return `.${this.name} This is ${this.name} component\n`;
+    return `.${this.name} This is ${this.name} component\r\n`;
   }
 
   get styl() {
-    return `.${this.name}\n  display: block\n`;
+    return `.${this.name}\r\n  display block\r\n`;
   }
 
   get js() {
     return `const ${Templates.camelCaseNameFunc(this.name)} = () => {
   console.log('${Templates.camelCaseNameFunc(this.name)}');
 };
-export { ${Templates.camelCaseNameFunc(this.name)} };\n`;
+export { ${Templates.camelCaseNameFunc(this.name)} };\r\n`;
   }
 }
 

@@ -1,1 +1,11 @@
-
+font($size = false, $color = false, $ls = false, $lh = false, $weight = false)
+  if $size
+    font-size $size px
+  if $color
+    color $color
+  if $ls
+    letter-spacing $ls em
+  if $lh
+    line-height $lh px
+  if $weight
+    font-weight $weight

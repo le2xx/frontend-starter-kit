@@ -45,10 +45,12 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                autoprefixer({ browsers: ['>= 10%', 'last 2 versions'] })
+                autoprefixer({
+                  browsers: ['ie >= 8', 'last 4 version']
+                })
               ],
-              sourceMap: true,
-            },
+              sourceMap: true
+            }
           },
           {
             loader: 'stylus-loader',

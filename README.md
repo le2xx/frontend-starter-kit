@@ -64,8 +64,41 @@ npm build
 npm run new-block name-block
 ```
 
+## File and folder structure
+
+```
+├── src/                                    #
+│   ├── app/                                # 
+│   │   ├── components/                     # Components directory
+│   │   │   ├── layout/                     #
+│   │   │   │   └── layout.pug              # 
+│   │   │   └── component-name/             # Component directory  
+│   │   │       ├── component-name.js       # JS file component  
+│   │   │       ├── component-name.pug      # Pug file component  
+│   │   │       └── component-name.styl     # Styl file component
+│   │   └── pages/                          #
+│   │       └── index.pug                   # Index page
+│   ├── assets/                             #
+│   │   ├── favicons/                       # Favicons directory
+│   │   ├── fonts/                          # Directory for font files
+│   │   └── images/                         # Directory for image files
+│   ├── styles/                             #
+│   │   ├── base.styl                       # Base stylus file for include other stylus files
+│   │   ├── fonts.styl                      # Stylus file for include fonts  
+│   │   ├── mixins.styl                     # Stylus file for making replayable styles
+│   │   └── variables.styl                  # Stylus file for making variables
+│   ├── main.js                             # Main JavaScript file
+│   └── polyfills.js                        #
+├── .gitignore                              #
+├── .stylintrc                              #
+├── new-block.js                            # Script for making new components
+├── package.json                            #
+├── README.md                               #
+└── webpack.conf.js                         # Webpack config file
+
+```
+
 ## Todo
 
 * Add automated testing tools
-* Add file structure in readme
 * Possible to add TypeScript

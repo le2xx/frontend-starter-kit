@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Starter project template for frontend",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "array-flat-polyfill": "^1.0.1",
     "babel-polyfill": "^6.26.0",
     "whatwg-fetch": "^3.0.0"
   }

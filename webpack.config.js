@@ -3,8 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: {
     polyfills: './src/polyfills.js',
     index: './src/main.js'
@@ -93,6 +94,9 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({ template: './src/app/pages/index.pug' }),
-    new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }])
+    new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+    new BaseHrefWebpackPlugin({
+      baseHref: argv.mode === 'development' ? '/' : 'https://le2xx.github.io/frontend-starter-kit/'
+    })
   ]
-};
+});

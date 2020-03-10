@@ -64,6 +64,12 @@ npm build
 npm run new-block name-block
 ```
 
+### GitHub page deploy
+
+```
+npm run gh-deploy
+```
+
 ## File and folder structure
 
 ```
